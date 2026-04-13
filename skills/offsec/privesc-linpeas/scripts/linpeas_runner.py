@@ -242,7 +242,7 @@ def build_report(findings: dict, system_info: dict, mode: str) -> dict:
     total = sum(len(v) for v in findings.values())
     return {
         "meta": {
-            "tool": "linpeas-privesc",
+            "tool": "privesc-linpeas",
             "version": "0.1.0",
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "scan_mode": mode,

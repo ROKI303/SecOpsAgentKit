@@ -1,5 +1,5 @@
 ---
-name: linpeas-privesc
+name: privesc-linpeas
 description: >
   Linux privilege escalation enumeration and attack surface analysis using LinPEAS
   (Linux Privilege Escalation Awesome Script). Automates post-exploitation discovery

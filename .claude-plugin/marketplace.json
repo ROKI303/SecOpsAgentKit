@@ -91,7 +91,7 @@
         "./offsec/webapp-sqlmap",
         "./offsec/webapp-nikto",
         "./offsec/crack-hashcat",
-        "./offsec/linpeas-privesc"
+        "./offsec/privesc-linpeas"
       ]
     }
   ]
