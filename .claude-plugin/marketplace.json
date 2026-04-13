@@ -35,7 +35,8 @@
         "./devsecops/iac-checkov",
         "./devsecops/container-grype",
         "./devsecops/container-hadolint",
-        "./devsecops/sca-trivy"
+        "./devsecops/sca-trivy",
+        "./devsecops/vuln-defectdojo"
       ]
     },
     {
