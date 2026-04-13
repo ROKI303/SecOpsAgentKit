@@ -68,6 +68,7 @@ SecOpsAgentKit provides specialized Claude Code skills for security operations, 
 - **[webapp-sqlmap](skills/offsec/webapp-sqlmap/SKILL.md)** - Automated SQL injection detection and exploitation using [SQLMap](https://sqlmap.org/) for web application security testing
 - **[webapp-nikto](skills/offsec/webapp-nikto/SKILL.md)** - Web server vulnerability scanner using [Nikto](https://cirt.net/Nikto2) for identifying security issues and misconfigurations
 - **[crack-hashcat](skills/offsec/crack-hashcat/SKILL.md)** - Advanced password recovery and hash cracking using [Hashcat](https://hashcat.net/wiki/) supporting multiple algorithms
+- **[privesc-linpeas](skills/offsec/privesc-linpeas/SKILL.md)** - Linux privilege escalation enumeration and attack surface analysis using [LinPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS) for post-exploitation privesc vector discovery
 
 
 ## Security Frameworks
