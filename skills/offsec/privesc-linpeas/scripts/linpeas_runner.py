@@ -6,7 +6,7 @@ Usage:
     python3 linpeas_runner.py [options]
 
 Options:
-    --mode {quick,standard,full}  Scan depth (default: standard)
+    --mode {quick,standard,full}  Scan depth: quick=-s, standard=default, full=-a (default: standard)
     --output PATH                 Output JSON report path (default: linpeas_report.json)
     --linpeas PATH                Path to linpeas.sh (fetches latest if not provided)
     --url URL                     Custom LinPEAS download URL
@@ -32,7 +32,7 @@ from pathlib import Path
 
 
 LINPEAS_URL = (
-    "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh"
+    "https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh"
 )
 
 # Severity patterns extracted from LinPEAS ANSI color codes and section headers
@@ -137,12 +137,18 @@ def fetch_linpeas(url: str, dest: str) -> None:
 
 
 def build_linpeas_cmd(linpeas_path: str, mode: str) -> list:
-    """Build the linpeas.sh invocation arguments."""
+    """Build the linpeas.sh invocation arguments.
+
+    Mode mapping to official LinPEAS flags:
+      quick    -> -s  (stealth: skips time-consuming checks, faster execution)
+      standard -> (no flags, default behaviour)
+      full     -> -a  (all checks except regex; most thorough)
+    """
     cmd = ["/bin/bash", linpeas_path]
     if mode == "quick":
-        cmd.append("-q")
+        cmd.append("-s")   # stealth/fast — official flag
     elif mode == "full":
-        cmd.extend(["-a"])  # all checks
+        cmd.append("-a")   # all checks
     # standard = no extra flags
     return cmd
 
