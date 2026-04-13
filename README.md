@@ -37,7 +37,7 @@ SecOpsAgentKit provides specialized Claude Code skills for security operations, 
 - **[iac-checkov](skills/devsecops/iac-checkov/SKILL.md)** - Infrastructure as Code security scanning using [Checkov](https://www.checkov.io/) with 750+ built-in policies
 - **[sca-trivy](skills/devsecops/sca-trivy/SKILL.md)** - Software Composition Analysis and container vulnerability scanning using [Trivy](https://aquasecurity.github.io/trivy/) for CVE detection
 - **[secrets-gitleaks](skills/devsecops/secrets-gitleaks/SKILL.md)** - Hardcoded secret detection and prevention in git repositories using [Gitleaks](https://github.com/gitleaks/gitleaks)
-- **[vuln-mgmt-defectdojo](skills/devsecops/vuln-mgmt-defectdojo/SKILL.md)** - Vulnerability management and findings aggregation using [DefectDojo](https://defectdojo.github.io/django-DefectDojo/) for deduplication, SLA tracking, and compliance reporting
+- **[vuln-defectdojo](skills/devsecops/vuln-defectdojo/SKILL.md)** - Vulnerability management and findings aggregation using [DefectDojo](https://defectdojo.github.io/django-DefectDojo/) for deduplication, SLA tracking, and compliance reporting
 
 ### Secure SDLC (secsdlc/)
 

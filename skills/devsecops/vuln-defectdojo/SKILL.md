@@ -1,5 +1,5 @@
 ---
-name: vuln-mgmt-defectdojo
+name: vuln-defectdojo
 description: >
   Vulnerability management and findings aggregation using DefectDojo. Centralizes
   security findings from all SecOpsAgentKit scanners (Semgrep, Bandit, ZAP, Trivy,
