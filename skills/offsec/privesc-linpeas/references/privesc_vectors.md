@@ -3,6 +3,18 @@
 Detailed exploitation steps for common Linux privilege escalation vectors found by LinPEAS.
 Load this reference when you need exploitation commands for a specific vector.
 
+## Table of Contents
+- [1. Sudo Misconfigurations](#1-sudo-misconfigurations)
+- [2. SUID/SGID Binaries](#2-suidsgid-binaries)
+- [3. Linux Capabilities](#3-linux-capabilities)
+- [4. Cron Job Exploitation](#4-cron-job-exploitation)
+- [5. PATH Hijacking](#5-path-hijacking)
+- [6. NFS No_Root_Squash](#6-nfs-no_root_squash)
+- [7. Writable /etc/passwd](#7-writable-etcpasswd)
+- [8. Container Breakout](#8-container-breakout)
+- [9. Credential Files](#9-credential-files)
+- [10. Service File Exploitation](#10-service-file-exploitation)
+
 ---
 
 ## 1. Sudo Misconfigurations

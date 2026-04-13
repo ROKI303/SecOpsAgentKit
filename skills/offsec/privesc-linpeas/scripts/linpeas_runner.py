@@ -170,6 +170,12 @@ def run_linpeas(cmd: list, verbose: bool) -> str:
             if verbose:
                 print(line, end="", file=sys.stderr)
         process.wait()
+        if process.returncode not in (0, 1):
+            # LinPEAS exits 1 normally on some systems; anything else is unexpected
+            print(
+                f"[!] LinPEAS exited with code {process.returncode}",
+                file=sys.stderr,
+            )
         return "".join(lines)
     except FileNotFoundError:
         print("[!] bash not found — cannot execute LinPEAS", file=sys.stderr)
@@ -196,9 +202,13 @@ def classify_line(line: str) -> str:
 
 
 def parse_output(raw: str) -> dict:
-    """Parse LinPEAS raw output into structured findings."""
+    """Parse LinPEAS raw output into structured findings.
+
+    Only critical/high/medium findings are stored — info lines are too
+    numerous to be useful in a structured report.
+    """
     clean = strip_ansi(raw)
-    findings = {"critical": [], "high": [], "medium": [], "info": []}
+    findings = {"critical": [], "high": [], "medium": []}
     current_section = "General"
 
     for line in clean.splitlines():
@@ -212,9 +222,9 @@ def parse_output(raw: str) -> dict:
                 current_section = header
                 break
 
-        # Classify and store finding
+        # Classify and store actionable findings only
         severity = classify_line(line)
-        if severity in ("critical", "high", "medium"):
+        if severity in findings:
             findings[severity].append(
                 {"section": current_section, "finding": stripped}
             )
@@ -259,7 +269,6 @@ def build_report(findings: dict, system_info: dict, mode: str) -> dict:
             "critical": len(findings["critical"]),
             "high": len(findings["high"]),
             "medium": len(findings["medium"]),
-            "info": len(findings["info"]),
         },
         "findings": findings,
     }
@@ -297,7 +306,7 @@ def main():
             f"  Critical : {s['critical']}\n"
             f"  High     : {s['high']}\n"
             f"  Medium   : {s['medium']}\n"
-            f"  Total    : {s['total_findings']}\n"
+            f"  Total    : {s['total_findings']}"
         )
 
         # Exit non-zero if critical findings exist

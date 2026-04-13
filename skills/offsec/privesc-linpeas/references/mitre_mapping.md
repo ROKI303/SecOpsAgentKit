@@ -2,6 +2,12 @@
 
 Maps LinPEAS enumeration categories to MITRE ATT&CK Enterprise techniques and sub-techniques.
 
+## Table of Contents
+- [Primary Tactics](#primary-tactics)
+- [Technique Mappings by LinPEAS Section](#technique-mappings-by-linpeas-section)
+- [Detection Opportunities](#detection-opportunities-defensive-reference)
+- [PTES Phase Mapping](#ptes-phase-mapping)
+
 ---
 
 ## Primary Tactics
